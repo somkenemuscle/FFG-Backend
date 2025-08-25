@@ -1,7 +1,7 @@
 import express from 'express';
 import handleAsyncErr from '../utils/catchAsync.js'
 const router = express.Router();
-import { addTrainer, deleteTrainer, getAllTrainers, getAllCustomers, addEquipment, deleteEquipment, getAllEquipments, addMembershipPlan, deleteMembershipPlan, getAllPlans, getAllBookings } from '../controllers/admin.controller.js';
+import { addTrainer, deleteTrainer, getAllTrainers, getAllCustomers, addEquipment, deleteEquipment, getAllEquipments, addMembershipPlan, deleteMembershipPlan, getAllPlans, getAllBookings, getPlanById } from '../controllers/admin.controller.js';
 
 //Get all trainers
 router.get("/trainers", handleAsyncErr(getAllTrainers));
@@ -14,6 +14,10 @@ router.get("/customers", handleAsyncErr(getAllCustomers));
 
 //Get all membership plans
 router.get("/membership-plans", handleAsyncErr(getAllPlans));
+
+//Get  membership plan  by id
+router.get("/membership-plans/:id", handleAsyncErr(getPlanById));
+
 
 //Get all bookings
 router.get("/bookings", handleAsyncErr(getAllBookings));

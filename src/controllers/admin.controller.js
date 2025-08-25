@@ -8,7 +8,7 @@ import { Booking } from '../models/booking.model.js';
 // Add a new Trainer
 export const addTrainer = async (req, res) => {
   try {
-    const { fullname, email, phoneNumber,profile_picture,field } = req.body;
+    const { fullname, email, phoneNumber, profile_picture, field } = req.body;
 
     // Ensure all fields are provided
     if (!fullname || !email || !phoneNumber) {
@@ -184,6 +184,20 @@ export const getAllPlans = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({ success: false, message: "Error fetching plans", error: error.message });
+  }
+};
+
+// ✅ Get membership plan by ID
+export const getPlanById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const plan = await MembershipPlan.findById(id);
+    if (!plan) {
+      return res.status(404).json({ success: false, message: "Plan not found" });
+    }
+    res.status(200).json({ success: true, data: plan });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Error fetching plan", error: error.message });
   }
 };
 
