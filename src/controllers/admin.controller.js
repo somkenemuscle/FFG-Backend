@@ -8,7 +8,7 @@ import { Booking } from '../models/booking.model.js';
 // Add a new Trainer
 export const addTrainer = async (req, res) => {
   try {
-    const { fullname, email, phoneNumber } = req.body;
+    const { fullname, email, phoneNumber,profile_picture,field } = req.body;
 
     // Ensure all fields are provided
     if (!fullname || !email || !phoneNumber) {
@@ -26,6 +26,8 @@ export const addTrainer = async (req, res) => {
       fullname,
       email,
       phoneNumber,
+      profile_picture,
+      field,
       role: "trainer"
     });
 

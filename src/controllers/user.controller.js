@@ -56,7 +56,7 @@ export const signInUser = async (req, res) => {
     if (!user) return res.status(404).json({ message: 'User not found' });
 
     // Compare the provided password with the hashed password in the database
-    const passwordMatch = await bcrypt.compare(password, user.password);
+    const passwordMatch = bcrypt.compare(password, user.password);
 
     if (passwordMatch) {
         // Passwords match, generate JWT token
@@ -81,7 +81,7 @@ export const signInAdmin = async (req, res) => {
     if (!user) return res.status(404).json({ message: 'Admin not found' });
 
     // Compare the provided password with the hashed password in the database
-    const passwordMatch = await bcrypt.compare(password, user.password);
+    const passwordMatch = bcrypt.compare(password, user.password);
 
     if (passwordMatch) {
         // Passwords match, generate JWT token

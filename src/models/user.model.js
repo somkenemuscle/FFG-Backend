@@ -22,6 +22,9 @@ const userSchema = new Schema({
     profile_picture: {
         type: String, // URL to the image
     },
+    field:{
+        type: String,
+    },
     role: {
         type: String,
         enum: ['customer', 'trainer', 'admin'], // only these values are allowed
