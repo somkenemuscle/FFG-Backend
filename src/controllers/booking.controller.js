@@ -25,7 +25,10 @@ export const createBooking = async (req, res) => {
             endDate: end,
         });
 
-        res.status(201).json({ success: true, data: booking });
+        const NewBooking = await Booking.findById(booking._id).populate('user membershipPlan');
+
+
+        res.status(201).json({ success: true, data: NewBooking });
 
     } catch (error) {
         res.status(500).json({ success: false, message: "Error creating booking", error: error.message });
