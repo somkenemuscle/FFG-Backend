@@ -41,7 +41,8 @@ export const getUserBookings = async (req, res) => {
 
         // find bookings for user and populate plan info
         const bookings = await Booking.find({ user: userId })
-            .populate("membershipPlan") // include plan details
+            .populate("membershipPlan")
+            .populate("user") // include plan details
             .sort({ createdAt: -1 });   // newest first
 
         if (!bookings || bookings.length === 0) {
