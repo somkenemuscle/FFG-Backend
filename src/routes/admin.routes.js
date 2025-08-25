@@ -28,13 +28,13 @@ router.post("/add-trainer", handleAsyncErr(addTrainer));
 router.post("/add-equipment", handleAsyncErr(addEquipment));
 
 // delete trainer
-router.delete("/delete-trainer", handleAsyncErr(deleteTrainer));
+router.delete("/delete-trainer/:id", handleAsyncErr(deleteTrainer));
 
 // delete equipment
-router.delete("/delete-equipment", handleAsyncErr(deleteEquipment));
+router.delete("/delete-equipment/:id", handleAsyncErr(deleteEquipment));
 
 // delete membership plan
-router.delete("/delete-membership-plan", handleAsyncErr(deleteMembershipPlan));
+router.delete("/delete-membership-plan/:id", handleAsyncErr(deleteMembershipPlan));
 
 
 export default router;
