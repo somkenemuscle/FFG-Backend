@@ -258,8 +258,7 @@ export const deleteMembershipPlan = async (req, res) => {
 export const getAllBookings = async (req, res) => {
   try {
     const bookings = await Booking.find()
-      .populate("user", "name email")         // show user basic info
-      .populate("membershipPlan", "name price durationInMonths") // show plan info
+      .populate('user membershipPlan')      // show user basic info) // show plan info
       .sort({ createdAt: -1 });               // newest first
 
     res.status(200).json({ success: true, data: bookings });
