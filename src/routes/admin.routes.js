@@ -28,7 +28,7 @@ router.post("/add-trainer", handleAsyncErr(addTrainer));
 router.post("/add-equipment", handleAsyncErr(addEquipment));
 
 // delete trainer
-router.delete("/delete-trainer/:id", handleAsyncErr(deleteTrainer));
+router.delete("/delete-trainer/:trainerId", handleAsyncErr(deleteTrainer));
 
 // delete equipment
 router.delete("/delete-equipment/:id", handleAsyncErr(deleteEquipment));
